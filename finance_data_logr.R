@@ -17,7 +17,6 @@ idxx <- rfinance::get_prices(symbol = 'IDXX')
 bbuy <- rfinance::get_prices(symbol = 'BBY')
 intc <- rfinance::get_prices(symbol = 'INTC')
 work <- rfinance::get_prices(symbol = 'WORK')
-
 rtyinc <- rfinance::get_prices(symbol = 'O')
 
 # APPLE data has numbers coded as characters
@@ -48,9 +47,6 @@ n_rows <- nrow(stock_data_filtered$apl)
 sum(logic_check)/n_rows == 1
 
 # Get log-returns
-
-
-
 logr_df <- map_df(stock_data_filtered, ~log(.x$Close / .x$Open))
 saveRDS(logr_df, file = "logr_data.RDS")
 
